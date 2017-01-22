@@ -1,47 +1,64 @@
-<div class="col-lg-4">
-   <!--  <h4>Search</h4>
-    <div class="hline"></div>
-        <p>
-            <br/>
-            <input type="text" class="form-control" placeholder="Search something">
-        </p>
-    <div class="spacing"></div> -->
-    <h4>Subscribe</h4>
-    <div class="hline"></div>
-        <p>
-            <p class="rss-subscribe">Subscribe to this blog <a href="{{ "/feed.xml" }}">via RSS</a>.</p>
-        </p>
-    <div class="spacing"></div>
-    <h4>Categories</h4>
-    <div class="hline"></div>
-    {% for category in site.categories %}{% unless category.first == "blog" or category.first == "project" or category.first == "question" %}
-        <p>
-            <a href="{{ '/category/#'   }}{{ category | first }}"><i class="fa fa-angle-right"></i> {{ category | first | capitalize }}</a>
-            <span class="badge badge-theme pull-right">{{ category | last | size }}</span>
-        </p>
-    {% endunless %}{% endfor %}
+{% capture sidebar %}
+{% comment %}
+<!-- 
+Handler for toggling the sidebar `.sidebar-toggle-checkbox` is used for regular
+styles and `#sidebar-toggle-checkbox` for behavior. 
+-->
+{% endcomment %}
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
 
-    <div class="spacing"></div>
+<div class="sidebar" id="sidebar">
 
-    <h4>Recent Posts</h4>
-    <div class="hline"></div>
-        <ul class="popular-posts">
-            {% for post in site.categories['blog'] limit:4 %} 
-                <li>
-                    <a href="{{ post.url  }}"><img src="{{ "/assets/img/blog/thumbs/" }}{{ post.thumb }}" alt="Popular Post"></a>
-                    <p><a href="{{ post.url }}">{{ post.title }}</a></p>
-                <em>Posted on {{ post.date | date_to_string }}</em>
-            </li>
-            {% endfor %} 
-        </ul>
+  {% if site.author_thumbnail && site.author_thumbnail != '' %}
+  <img 
+    src="{{ site.author_thumbnail | prepend: site.baseurl | prepend: site.url }}"
+    alt="{{ site.title }}" />
 
-    <div class="spacing"></div>
+  {% endif %}
 
-    <h4>Popular Tags</h4>
-    <div class="hline"></div>
-    <p>
-    {% for category in site.categories %}{% unless category.first == "blog" or category.first == "project" or category.first == "question" %}
-            <a class="btn btn-theme" href="{{ '/category/#'   }}{{ category | first }}" role="button">{{ category | first | capitalize }} ({{ category | last | size }})</a>	         
-        {% endunless %}{% endfor %}
-    </p>
+  <div class="sidebar-info">
+      <p>
+        {{ site.description }}
+      </p>
+  </div>
+
+  <nav class="sidebar-nav">
+
+    <a class="sidebar-nav-item{% if page.url == '/index.html' %} active {% endif %}" 
+      href="{{ '' | prepend: site.baseurl | prepend: site.url | append: '/' }}"> 
+      Home
+    </a>
+
+    {% for item in site.data.main-nav %}
+    {% assign item_url = item.href | append:"/" %}
+    {% if item_url == page.url %}
+    {% assign c = "active" %}
+    {% else %}
+    {% assign c = "" %}
+    {% endif %}
+
+    <a class="sidebar-nav-item {{ c }}" 
+      href="{{ item.href | prepend: site.baseurl | prepend: site.url }}">
+      {{ item.title }}
+    </a>
+    {% endfor %}
+
+    <a class="sidebar-nav-item" 
+      href="http://github.com/{{ site.theme.social.github }}"
+      target="_blank">
+      GitHub/Download
+    </a>
+
+  </nav>
+
+  <div class="sidebar-info small">
+     <p>
+       Made by <a href="http://gayan.me" target="_blank">Gayan Virajith</a> For everyone.
+       Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>
+     </p>
+  </div>
+
+  {% include social.html %}
+
 </div>
+{% endcapture %}{{ sidebar | strip_newlines }}

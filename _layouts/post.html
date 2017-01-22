@@ -1,31 +1,73 @@
 ---
 layout: default
 ---
+<div class="post">
 
-{% include wrap.html %}
+  {% if page.banner_image %}
+  <div class="banner-image">
+    <img 
+        src="{{ "/assets/images/" | append: page.banner_image | prepend: site.baseurl | prepend: site.url }}" 
+        alt="{{ page.banner_image_alt }}">
+  </div>
+  {% endif %}
 
-<div class="container mtb">
-    <div class="row">
-        <! -- SINGLE POST -->
-        <div class="col-lg-8">
-            <! -- Blog Post  -->
-            <p><img class="img-responsive" src="{{ "/assets/img/blog/" | prepend: site.baseurl }}{{ page.img }}"></p>
-            <a href="{{ page.url | prepend: site.baseurl }}"><h3 class="ctitle">{{ page.title }}</h3></a>
-            <p><csmall>{{ page.date | date: "%b %-d, %Y" }}. | By: {{ page.author }}</csmall></p>
-              
-            {{ content }}
+  {% if page.banner_video %}
+    <div class="banner_video">
+      {{ page.banner_video }}
+    </div>
+  {% endif %}
 
-            <div class="spacing"></div>
-            <!-- <h6>SHARE:</h6>
-            <p class="share">
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-tumblr"></i></a>
-                <a href="#"><i class="fa fa-google-plus"></i></a>		 		
-            </p> -->
-        </div><! --/col-lg-8 -->
-        
-        {% include sidebar.html %}
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <p class="post-meta">
+    {% if (page.categories.size > 0 %}
+      <span class="categories">
+      {{ page.categories | array_to_sentence_string }}
+      </span> |
+    {% endif %}
+    <span class="post-date">
+    {{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}  
+    </span>
+    </p>
+  </header>
 
-    </div><! --/row -->
-</div><! --/container -->
+  <article class="post-content">
+    {{ content }}    
+  </article>
+
+  {% if site.related_posts %}
+    <div class="related-posts">
+      <h4>Related Posts</h4>
+      <ul>
+        {% for post in site.related_posts limit:3 %}
+          <li>
+            <h5>
+              <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">
+                {{ post.title }}
+                <small>{{ post.date | date_to_string }}</small>
+              </a>
+            </h5>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+  <div class="author-info">
+    {% if site.theme.show_author_info %}
+      {% include author.html %}
+    {% endif %}
+  
+    {% if site.theme.show_share_buttons %}
+      {% include share-buttons.html %}
+    {% endif %}  
+  </div>
+  
+  {% if page.comments %}
+    <div class="comments">
+        <a href="javascript:;" class="load-view">View Comments...</a>
+        <div id="disqus_thread"></div>
+        <div id="g-comments"></div>
+    </div>
+  {% endif %}
+</div>
