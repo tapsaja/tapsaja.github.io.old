@@ -4,6 +4,7 @@ title:  "Pengantar"
 date:   2017-01-22 12:30:55
 permalink: /pengantar/
 categories: blog
+banner_image: gerbang-kota-mekah.jpg
 comments: true
 ---
 
