@@ -6,4 +6,6 @@ banner_image: sample-banner-image-2.jpg
 banner_image_alt: "Tentang Ini"
 ---
 
+بِسْــــــــــــــــــمِ اﷲِالرَّحْمَنِ اارَّحِيم
+
 Situs ini adalah dokumentasi pribadi mengenai usaha saya untuk kembali mempelajari agama Islam.
