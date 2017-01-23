@@ -113,7 +113,7 @@ html * {
 
 body {
   font: {
-    size: 100%;
+    size: 87%;
     family: $font-family-base; // variables inside partials > _variables.scss
   }
   color: $gray-dark;
@@ -684,4 +684,8 @@ img {
   p { @include font-size(14px); }
   img { float:left; margin-right: 1em; }
   ul { margin-bottom: 0; }
+}
+
+.bigger {
+  font-size: 100%;
 }
