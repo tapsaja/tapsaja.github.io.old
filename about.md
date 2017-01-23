@@ -8,7 +8,7 @@ banner_image_alt: "Tentang Ini"
 
 <p dir="rtl" class="bigger">السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ</p>
 
-Situs ini adalah dokumentasi pribadi mengenai usaha saya untuk [/pengantar/](kembali) mempelajari agama Islam. Diberi nama __"berserah"__ sebagai salah satu arti dari kata "Islam" dan usaha saya untuk kembali ke jalan Sang Penguasa Tunggal.
+Situs ini adalah dokumentasi pribadi mengenai usaha saya untuk [kembali](/pengantar/) mempelajari agama Islam. Diberi nama __"berserah"__ sebagai salah satu arti dari kata "Islam" dan usaha saya untuk kembali ke jalan Sang Penguasa Tunggal.
 
 Dalam situs ini saya mencoba menggunakan bahasa sederhana. Jika ada padanannya, akan diusahakan menggunakan jargon dalam Bahasa Indonesia, tetapi kadang kata dalam Bahasa Arab agak kurang pas jika langsung diterjemahkan, dan pada kasus tersebut akan digunakan jargon dalam Bahasa Arab.
 
