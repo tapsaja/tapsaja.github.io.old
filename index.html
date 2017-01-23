@@ -27,17 +27,17 @@ layout: default
     <p class="post-meta">
     {% if (post.categories.size > 0 %}
       <span class="categories">
-      {{ post.categories | array_to_sentence_string }}
+      {{ post.categories | array_to_sentence_string: 'dan' }}
       </span> |
     {% endif %}
     <span class="post-date">
-    {{ post.date | date: "%b %-d, %Y" }}{% if post.author %} • {{ post.author }}{% endif %}{% if post.meta %} • {{ post.meta }}{% endif %}  
+    {{ post.date | date: "%d/%m/%Y" }}{% if post.author %} • {{ post.author }}{% endif %}{% if post.meta %} • {{ post.meta }}{% endif %}  
     </span>
     </p>
 
     {{ post.excerpt }}
     <a href="{{ post.url | append: '/' | replace: '//', '/' | prepend: site.baseurl | prepend: site.url |  }}">
-      Continue reading »
+      Lanjutkan baca »
     </a>
   </article>
   {% endfor %}
@@ -47,15 +47,15 @@ layout: default
 <div class="pagination">
   
   {% if paginator.next_page %}
-      <a class="pagination-item older btn" href="{{ paginator.next_page_path | prepend: site.baseurl | append: '/' | replace: '//', '/' }}">Older</a>    
+      <a class="pagination-item older btn" href="{{ paginator.next_page_path | prepend: site.baseurl | append: '/' | replace: '//', '/' }}">Lebih Lama</a>    
   {% else %}
-    <span class="pagination-item older btn-disabled">Older</span>
+    <span class="pagination-item older btn-disabled">Lebih Lama</span>
   {% endif %}
   
   {% if paginator.previous_page %}
-    <a class="pagination-item newer btn " href="{{ paginator.previous_page_path | prepend: site.baseurl | append: '/' | replace: '//', '/' }}">Newer</a>
+    <a class="pagination-item newer btn " href="{{ paginator.previous_page_path | prepend: site.baseurl | append: '/' | replace: '//', '/' }}">Lebih Baru</a>
   {% else %}
-    <span class="pagination-item newer btn-disabled">Newer</span>
+    <span class="pagination-item newer btn-disabled">Lebih Baru</span>
   {% endif %}  
   
 </div>
