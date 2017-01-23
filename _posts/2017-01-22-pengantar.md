@@ -21,6 +21,6 @@ Walaupun saya tetap meyakini agama ini, apalagi ilmu yang saya pelajari di bangk
 Entah berapa kali saya mencoba "kembali", dan kali ini saya lagi-lagi mencobanya. Mudah-mudahan saya tetap dalam komitmen ini, dan mudah-mudahan situs ini berguna minimal untuk saya dan akan lebih baik lagi jika berguna pagi pembaca yang lain.
 
 <div id="sumber" class="smaller">
-Foto: Gerbang Kota Mekah  
+Foto: Gerbang Kota Mekah    
 Sumber: ibnu @plusk
 </div>
