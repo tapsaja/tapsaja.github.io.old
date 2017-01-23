@@ -22,7 +22,7 @@ layout: default
     <p class="post-meta">
     {% if (page.categories.size > 0 %}
       <span class="categories">
-      {{ page.categories | array_to_sentence_string: 'dan' }}
+      {{ page.categories | array_to_sentence_string }}
       </span> |
     {% endif %}
     <span class="post-date">
@@ -44,7 +44,7 @@ layout: default
             <h5>
               <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">
                 {{ post.title }}
-                <small>{{ post.date | date: %d/%m/%Y }}</small>
+                <small>{{ post.date | date: "%d/%m/%Y" }}</small>
               </a>
             </h5>
           </li>

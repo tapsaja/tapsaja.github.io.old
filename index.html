@@ -27,7 +27,7 @@ layout: default
     <p class="post-meta">
     {% if (post.categories.size > 0 %}
       <span class="categories">
-      {{ post.categories | array_to_sentence_string: 'dan' }}
+      {{ post.categories | array_to_sentence_string }}
       </span> |
     {% endif %}
     <span class="post-date">
